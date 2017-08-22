@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="ToonBoomExportGUI\ToonBoomExport.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Catchpoint enabled="false" exceptionName="GLib.GException" includeSubclasses="True" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToonBoomExportGUI\Controller\UTransformController.cs">
+    <Files>
+      <File FileName="ToonBoomExportGUI\Controller\UTransformController.cs" Line="207" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ToonBoomExport PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
