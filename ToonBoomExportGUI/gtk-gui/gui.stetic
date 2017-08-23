@@ -5,7 +5,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Debug/ToonBoomExportGUI.exe" internal="true" />
+    <widget-library name="../bin/Release/ToonBoomExportGUI.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="ToonBoomExportGUI.StartScreen" design-size="587 216">
     <property name="MemberName" />
@@ -328,157 +328,109 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.VPaned" id="vpaned3">
+          <widget class="Gtk.HButtonBox" id="hbuttonbox3">
             <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Position">250</property>
+            <property name="Size">1</property>
+            <property name="LayoutStyle">Start</property>
             <child>
-              <widget class="Gtk.VBox" id="vbox5">
+              <widget class="Gtk.Button" id="AddXStageButton">
                 <property name="MemberName" />
-                <property name="Spacing">6</property>
-                <child>
-                  <widget class="Gtk.HButtonBox" id="hbuttonbox3">
-                    <property name="MemberName" />
-                    <property name="Size">1</property>
-                    <property name="LayoutStyle">Start</property>
-                    <child>
-                      <widget class="Gtk.Button" id="AddXStageButton">
-                        <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="Type">TextAndIcon</property>
-                        <property name="Icon">stock:gtk-add Menu</property>
-                        <property name="Label" translatable="yes">Add XStage File...</property>
-                        <property name="UseUnderline">True</property>
-                      </widget>
-                      <packing>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
-                      </packing>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">0</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.Notebook" id="Notebook">
-                    <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <property name="CurrentPage">0</property>
-                    <child>
-                      <placeholder />
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="label4">
-                        <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Placeholder</property>
-                      </widget>
-                      <packing>
-                        <property name="type">tab</property>
-                      </packing>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">1</property>
-                    <property name="AutoSize">True</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.HSeparator" id="hseparator2">
-                    <property name="MemberName" />
-                  </widget>
-                  <packing>
-                    <property name="PackType">End</property>
-                    <property name="Position">2</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
-                  </packing>
-                </child>
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-add Menu</property>
+                <property name="Label" translatable="yes">Add XStage File...</property>
+                <property name="UseUnderline">True</property>
               </widget>
               <packing>
-                <property name="Resize">False</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Notebook" id="notebook3">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="CurrentPage">1</property>
+            <child>
+              <widget class="ToonBoomExportGUI.SceneNavigator" id="scenenavigator2">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="label4">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Scenes</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
               </packing>
             </child>
             <child>
-              <widget class="Gtk.VBox" id="vbox7">
+              <widget class="Gtk.VPaned" id="ElementsPanel">
                 <property name="MemberName" />
-                <property name="Spacing">6</property>
+                <property name="CanFocus">True</property>
+                <property name="Position">249</property>
+                <property name="BorderWidth">9</property>
                 <child>
-                  <widget class="Gtk.HSeparator" id="hseparator3">
+                  <widget class="Gtk.VBox" id="vbox5">
                     <property name="MemberName" />
-                  </widget>
-                  <packing>
-                    <property name="Position">0</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.HButtonBox" id="hbuttonbox5">
-                    <property name="MemberName" />
-                    <property name="Size">1</property>
-                    <property name="LayoutStyle">Start</property>
+                    <property name="Spacing">6</property>
                     <child>
-                      <widget class="Gtk.Button" id="NewExportListButton">
+                      <widget class="Gtk.Notebook" id="Notebook">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
-                        <property name="Type">TextAndIcon</property>
-                        <property name="Icon">stock:gtk-new Menu</property>
-                        <property name="Label" translatable="yes">New Export List...</property>
-                        <property name="UseUnderline">True</property>
+                        <property name="CurrentPage">0</property>
+                        <child>
+                          <placeholder />
+                        </child>
+                        <child>
+                          <widget class="Gtk.Label" id="label5">
+                            <property name="MemberName" />
+                            <property name="LabelProp" translatable="yes">Placeholder</property>
+                          </widget>
+                          <packing>
+                            <property name="type">tab</property>
+                          </packing>
+                        </child>
                       </widget>
                       <packing>
+                        <property name="Position">0</property>
+                        <property name="AutoSize">True</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.HSeparator" id="hseparator2">
+                        <property name="MemberName" />
+                      </widget>
+                      <packing>
+                        <property name="PackType">End</property>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
                       </packing>
                     </child>
                   </widget>
                   <packing>
-                    <property name="Position">1</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
+                    <property name="Resize">False</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.Notebook" id="NotebookExport">
-                    <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <property name="CurrentPage">0</property>
-                    <child>
-                      <placeholder />
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="label13">
-                        <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Placeholder</property>
-                      </widget>
-                      <packing>
-                        <property name="type">tab</property>
-                      </packing>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">2</property>
-                    <property name="AutoSize">True</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.HBox" id="hbox1">
+                  <widget class="Gtk.VBox" id="vbox7">
                     <property name="MemberName" />
                     <property name="Spacing">6</property>
                     <child>
-                      <widget class="Gtk.Button" id="BuildButton">
+                      <widget class="Gtk.HSeparator" id="hseparator3">
                         <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="Type">TextOnly</property>
-                        <property name="Label" translatable="yes">Build All</property>
-                        <property name="UseUnderline">True</property>
                       </widget>
                       <packing>
                         <property name="Position">0</property>
@@ -488,12 +440,24 @@
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.ToggleButton" id="BuildObsolete">
+                      <widget class="Gtk.HButtonBox" id="hbuttonbox5">
                         <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="Type">TextOnly</property>
-                        <property name="Label" translatable="yes">Build Obsolete</property>
-                        <property name="UseUnderline">True</property>
+                        <property name="Size">1</property>
+                        <property name="LayoutStyle">Start</property>
+                        <child>
+                          <widget class="Gtk.Button" id="NewExportListButton">
+                            <property name="MemberName" />
+                            <property name="CanFocus">True</property>
+                            <property name="Type">TextAndIcon</property>
+                            <property name="Icon">stock:gtk-new Menu</property>
+                            <property name="Label" translatable="yes">Create Export List...</property>
+                            <property name="UseUnderline">True</property>
+                          </widget>
+                          <packing>
+                            <property name="Expand">False</property>
+                            <property name="Fill">False</property>
+                          </packing>
+                        </child>
                       </widget>
                       <packing>
                         <property name="Position">1</property>
@@ -502,39 +466,85 @@
                         <property name="Fill">False</property>
                       </packing>
                     </child>
+                    <child>
+                      <widget class="Gtk.Notebook" id="NotebookExport">
+                        <property name="MemberName" />
+                        <property name="CanFocus">True</property>
+                        <property name="CurrentPage">0</property>
+                        <child>
+                          <placeholder />
+                        </child>
+                        <child>
+                          <widget class="Gtk.Label" id="label13">
+                            <property name="MemberName" />
+                            <property name="LabelProp" translatable="yes">Placeholder</property>
+                          </widget>
+                          <packing>
+                            <property name="type">tab</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="Position">2</property>
+                        <property name="AutoSize">True</property>
+                      </packing>
+                    </child>
                   </widget>
-                  <packing>
-                    <property name="Position">3</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
-                  </packing>
                 </child>
               </widget>
+              <packing>
+                <property name="Position">1</property>
+              </packing>
             </child>
-          </widget>
-          <packing>
-            <property name="Position">1</property>
-            <property name="AutoSize">True</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.ProgressBar" id="ProgressWidget">
-            <property name="MemberName" />
-            <property name="Text" translatable="yes">0 / 100 jobs</property>
-            <property name="Fraction">1</property>
+            <child>
+              <widget class="Gtk.Label" id="label3">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Elements</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="Position">2</property>
             <property name="AutoSize">True</property>
-            <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HButtonBox" id="hbuttonbox4">
+          <widget class="Gtk.HBox" id="hbox1">
             <property name="MemberName" />
-            <property name="Size">0</property>
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Button" id="BuildButton">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Build All</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.ToggleButton" id="BuildObsolete">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Build Obsolete</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
           </widget>
           <packing>
             <property name="Position">3</property>
@@ -544,8 +554,10 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HSeparator" id="hseparator1">
+          <widget class="Gtk.ProgressBar" id="ProgressWidget">
             <property name="MemberName" />
+            <property name="Text" translatable="yes">0 / 100 jobs</property>
+            <property name="Fraction">1</property>
           </widget>
           <packing>
             <property name="Position">4</property>
@@ -1132,6 +1144,68 @@
           </packing>
         </child>
       </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="ToonBoomExportGUI.SceneNavigator" design-size="300 300">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <widget class="Gtk.VBox" id="vbox2">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.NodeView" id="nodeview2">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HButtonBox" id="hbuttonbox2">
+            <property name="MemberName" />
+            <property name="Size">1</property>
+            <property name="LayoutStyle">Start</property>
+            <child>
+              <widget class="Gtk.Button" id="button70">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-add Menu</property>
+                <property name="Label" translatable="yes" />
+                <property name="UseUnderline">True</property>
+                <property name="BorderWidth">3</property>
+              </widget>
+              <packing>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Bin" id="ToonBoomExportGUI.SceneExportList" design-size="300 300">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <child>
+      <placeholder />
     </child>
   </widget>
 </stetic-interface>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using Gtk;
 using System.Collections.Generic;
@@ -70,7 +70,7 @@ namespace ToonBoomExportGUI
 				ResYEntry.Text = "" + list.ResolutionY;
 			};
 
-			ListStore formatModel = new ListStore (typeof (string), typeof (TvgFileSetting.CropSetting));
+			ListStore formatModel = new ListStore (typeof (string), typeof (ElementExportSettings.CropSetting));
 			foreach (object enumVal in Enum.GetValues (typeof (ExportType))) {
 				formatModel.AppendValues (enumVal.ToString (), enumVal);
 			}
@@ -81,8 +81,8 @@ namespace ToonBoomExportGUI
 			};
 
 			ListStore cropModeModel = new ListStore (typeof (string));
-			foreach (object enumVal in Enum.GetValues (typeof (TvgFileSetting.CropSetting))) {
-				if ((TvgFileSetting.CropSetting)enumVal == TvgFileSetting.CropSetting.Default) continue;
+			foreach (object enumVal in Enum.GetValues (typeof (ElementExportSettings.CropSetting))) {
+				if ((ElementExportSettings.CropSetting)enumVal == ElementExportSettings.CropSetting.Default) continue;
 				cropModeModel.AppendValues (enumVal.ToString ());
 			}
 
@@ -138,14 +138,14 @@ namespace ToonBoomExportGUI
 			};
 
 
-			foreach (TvgFileSetting file in list.Files) {
+			foreach (ElementExportSettings file in list.Elements) {
 				nodestore.AddNode (file);
 			}
 
 			controller.TvgAdded += (activeList) => {
 				if (activeList == list) {
 					nodestore.Clear ();
-					foreach (TvgFileSetting file in list.Files) {
+					foreach (ElementExportSettings file in list.Elements) {
 						nodestore.AddNode (file);
 					}
 				}
@@ -153,9 +153,9 @@ namespace ToonBoomExportGUI
 
 			ExportSelectedButton.Clicked += (sender, e) => {
 				ITreeNode[] selected = NodeFileList.NodeSelection.SelectedNodes;
-				List<TvgFileSetting> tvgs = new List<TvgFileSetting> ();
+				List<ElementExportSettings> tvgs = new List<ElementExportSettings> ();
 				foreach (ITreeNode node in selected) {
-					tvgs.Add ((TvgFileSetting)node);
+					tvgs.Add ((ElementExportSettings)node);
 				}
 				if (tvgs.Count > 0) {
 					projectController.Export (list, tvgs);
@@ -169,17 +169,17 @@ namespace ToonBoomExportGUI
 
 			RemoveButton.Clicked += (sender, e) => {
 				ITreeNode [] selected = NodeFileList.NodeSelection.SelectedNodes;
-				List<TvgFileSetting> tvgs = new List<TvgFileSetting> ();
+				List<ElementExportSettings> tvgs = new List<ElementExportSettings> ();
 				foreach (ITreeNode node in selected) {
-					tvgs.Add ((TvgFileSetting)node);
+					tvgs.Add ((ElementExportSettings)node);
 				}
-				foreach (TvgFileSetting tvg in tvgs) {
+				foreach (ElementExportSettings tvg in tvgs) {
 					controller.RemoveTvg (tvg, exportList);
 				}
 
 				//Refresh node store
 				nodestore.Clear ();
-				foreach (TvgFileSetting file in list.Files) {
+				foreach (ElementExportSettings file in list.Elements) {
 					nodestore.AddNode (file);
 				}
 
@@ -190,12 +190,12 @@ namespace ToonBoomExportGUI
 
 		private void _initNodeStore ()
 		{
-			nodestore = new NodeStore (typeof (TvgFileSetting));
+			nodestore = new NodeStore (typeof (ElementExportSettings));
 
 			CellRendererText optionsRenderer = new CellRendererText ();
 			optionsRenderer.Editable = true;
 			optionsRenderer.Edited += (object o, EditedArgs args) => {
-				TvgFileSetting vf = (TvgFileSetting)(NodeFileList.NodeStore.GetNode (new TreePath (args.Path)));
+				ElementExportSettings vf = (ElementExportSettings)(NodeFileList.NodeStore.GetNode (new TreePath (args.Path)));
 				vf.Options = args.NewText;
 
 			};
@@ -203,7 +203,7 @@ namespace ToonBoomExportGUI
 			CellRendererText nameRenderer = new CellRendererText ();
 			nameRenderer.Editable = true;
 			nameRenderer.Edited += (object o, EditedArgs args) => {
-				TvgFileSetting vf = (TvgFileSetting)(NodeFileList.NodeStore.GetNode (new TreePath (args.Path)));
+				ElementExportSettings vf = (ElementExportSettings)(NodeFileList.NodeStore.GetNode (new TreePath (args.Path)));
 				vf.Name = args.NewText;
 
 			};
@@ -214,8 +214,8 @@ namespace ToonBoomExportGUI
 			nameCol.Resizable = true;
 
 			CellRendererCombo cropRenderer = new CellRendererCombo ();
-			ListStore model = new ListStore (typeof(string), typeof (TvgFileSetting.CropSetting));
-			foreach (object enumVal in Enum.GetValues (typeof (TvgFileSetting.CropSetting)))
+			ListStore model = new ListStore (typeof(string), typeof (ElementExportSettings.CropSetting));
+			foreach (object enumVal in Enum.GetValues (typeof (ElementExportSettings.CropSetting)))
 			{
 				model.AppendValues (enumVal.ToString (), enumVal);
 			}
@@ -224,8 +224,8 @@ namespace ToonBoomExportGUI
 			cropRenderer.Model = model;
 			cropRenderer.TextColumn = 0;
 			cropRenderer.Edited += (o, args) => {
-				TvgFileSetting vf = (TvgFileSetting)(NodeFileList.NodeStore.GetNode (new TreePath (args.Path)));
-				vf.CropMode = (TvgFileSetting.CropSetting) Enum.Parse (typeof (TvgFileSetting.CropSetting), args.NewText);
+				ElementExportSettings vf = (ElementExportSettings)(NodeFileList.NodeStore.GetNode (new TreePath (args.Path)));
+				vf.CropMode = (ElementExportSettings.CropSetting) Enum.Parse (typeof (ElementExportSettings.CropSetting), args.NewText);
 			};
 			TreeViewColumn cropCol = NodeFileList.AppendColumn ("Crop Mode", cropRenderer, "text", 4);
 
@@ -238,7 +238,7 @@ namespace ToonBoomExportGUI
 
 			NodeFileList.RowActivated += (o, args) => {
 				if (args.Column == pixCol) {
-					TvgFileSetting tvg = ((TvgFileSetting) NodeFileList.NodeStore.GetNode (args.Path));
+					ElementExportSettings tvg = ((ElementExportSettings) NodeFileList.NodeStore.GetNode (args.Path));
 					ExportResultDialog dialog = new ExportResultDialog (tvg.ExportLog);
 					dialog.Run ();
 					dialog.Destroy ();

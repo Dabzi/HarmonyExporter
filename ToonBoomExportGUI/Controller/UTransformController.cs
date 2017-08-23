@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.IO;
@@ -137,17 +137,17 @@ namespace ToonBoomExportGUI
 			return result;
 		}
 
-		public void Export (ProjectController project, ExportList list, TvgFileSetting tvg, out ExportResult output)
+		public void Export (ProjectController project, ExportList list, ElementExportSettings tvg, out ExportResult output)
 		{
 			output = new ExportResult (tvg);
 			string commandOut, commandErr;
 			try {
 
 				output.Info ("Exporting {0} from {1}...", tvg.Name, list.Name);
-				TvgFileSetting.CropSetting CropMode = tvg.CropMode;
-				if (CropMode == TvgFileSetting.CropSetting.Default) {
+				ElementExportSettings.CropSetting CropMode = tvg.CropMode;
+				if (CropMode == ElementExportSettings.CropSetting.Default) {
 					//We need to identify the crop mode from the global settings.
-					CropMode = (TvgFileSetting.CropSetting)Enum.Parse (typeof (TvgFileSetting.CropSetting), list.CropSetting);
+					CropMode = (ElementExportSettings.CropSetting)Enum.Parse (typeof (ElementExportSettings.CropSetting), list.CropSetting);
 				}
 
 
@@ -212,23 +212,23 @@ namespace ToonBoomExportGUI
 				int [] rect = new int[0];
 
 				ImageCropper cropper = new ImageCropper ();
-				if (exportType == ExportType.PNG || exportType == ExportType.PNG4 || exportType == ExportType.OMFJPEG) {
+				if (exportType == ExportType.PNG || exportType == ExportType.PNG4 || exportType == ExportType.OMFJPEG || exportType == ExportType.PDF) {
 					switch (CropMode) {
-					case TvgFileSetting.CropSetting.TVG_All:
+					case ElementExportSettings.CropSetting.TVG_All:
 						tvgBox = GetTvgBounds (project, infile);
 						rect = GetRect (tvgBox, resX, resY, output);
 
 						output.Info ("Cropping box:\nx1: {0}, y1: {1}\nx2: {2}, y2: {3}", rect [0], rect [1], rect [2], rect [3]);
 
 						break;
-					case TvgFileSetting.CropSetting.TVG_Underlay:
+					case ElementExportSettings.CropSetting.TVG_Underlay:
 						string underlayOnlyTvg = MakeTemporaryTvgFile ("CROP_UNDERLAY", "-clearlayers colorart,lineart,overlayart", infile, project);
 						tvgBox = GetTvgBounds (project, underlayOnlyTvg);
 						rect = GetRect (tvgBox, resX, resY, output);
 
 						output.Info ("Cropping box:\nx1: {0}, y1: {1}\nx2: {2}, y2: {3} (underlay only)", rect [0], rect [1], rect [2], rect [3]);
 						break;
-						case TvgFileSetting.CropSetting.TVG_Overlay:
+						case ElementExportSettings.CropSetting.TVG_Overlay:
 						string overlayOnly = MakeTemporaryTvgFile ("CROP_OVERLAY", "-clearlayers colorart,lineart,underlayart", infile, project);
 						tvgBox = GetTvgBounds (project, overlayOnly);
 						rect = GetRect (tvgBox, resX, resY, output);
@@ -243,7 +243,20 @@ namespace ToonBoomExportGUI
 				}
 
 				if (rect.Length == 4) {
-					cropper.CropImage (outputFile, rect [0], rect [1], rect [2], rect [3]);
+                    if(exportType != ExportType.PDF)
+                    {
+                        cropper.CropImage(outputFile, rect[0], rect[1], rect[2], rect[3]);
+                    }
+                    else
+                    {
+                        float[] pdfBox = new float[4];
+                        pdfBox[0] = rect[0] / (float)resX;
+                        pdfBox[1] = rect[1] / (float)resY;
+                        pdfBox[2] = rect[2] / (float)resX;
+                        pdfBox[3] = rect[3] / (float)resY;
+
+                        cropper.CropPdf(outputFile, pdfBox[0], pdfBox[1], pdfBox[2], pdfBox[3]);
+                    }
 				}
 
 

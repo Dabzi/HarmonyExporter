@@ -20,19 +20,19 @@ namespace ToonBoomExportGUI
 				return ExportLineArt && ExportColorArt;
 			}
 		}
-		public List<TvgFileSetting> Files;
+		public List<ElementExportSettings> Elements;
+		public List<SceneExportSettings> Scenes;
 
 		public ExportList (String name)
 		{
 			Name = name;
-			Files = new List<TvgFileSetting> ();
+			Elements = new List<ElementExportSettings> ();
 		}
 
 
 		public ExportList ()
 		{
-			Files = new List<TvgFileSetting> ();
+			Elements = new List<ElementExportSettings> ();
 		}
 	}
 }
-

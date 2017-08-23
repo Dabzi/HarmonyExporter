@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Threading;
@@ -41,7 +41,7 @@ namespace ToonBoomExportGUI
 			}
 		}
 
-		public void AddJob (ProjectController projectController, ExportList exportList, TvgFileSetting tvg)
+		public void AddJob (ProjectController projectController, ExportList exportList, ElementExportSettings tvg)
 		{
 			if (!running) {
 				jobs.Add (new ExportJob (projectController, exportList, tvg));
@@ -73,9 +73,9 @@ namespace ToonBoomExportGUI
 		
 		public ProjectController projectController { get; private set;}
 		public ExportList exportList { get; private set; }
-		public TvgFileSetting tvg { get; private set; }
+		public ElementExportSettings tvg { get; private set; }
 
-		public ExportJob (ProjectController projectController, ExportList exportList, TvgFileSetting tvg)
+		public ExportJob (ProjectController projectController, ExportList exportList, ElementExportSettings tvg)
 		{
 			this.projectController = projectController;
 			this.exportList = exportList;

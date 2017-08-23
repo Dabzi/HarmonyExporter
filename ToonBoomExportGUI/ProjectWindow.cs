@@ -52,7 +52,7 @@ namespace ToonBoomExportGUI
 
 				if (fc.Run () == (int)ResponseType.Accept) {
 					XStageProject xsp = XStageProject.Load (fc.Filename);
-					XStageElements elementTable = xsp.elements;
+					List<XStageElement> elementTable = xsp.elements;
 
 					controller.AddXStageProject (new Uri(fc.Uri));
 				}

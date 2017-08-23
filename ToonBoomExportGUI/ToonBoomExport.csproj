@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,6 +30,9 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PdfSharp">
+      <HintPath>.\PdfSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="gtk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
       <SpecificVersion>False</SpecificVersion>
@@ -50,6 +53,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
     <Reference Include="libstetic">
@@ -81,7 +85,7 @@
     <Compile Include="gtk-gui\ToonBoomExportGUI.ExportListTab.cs" />
     <Compile Include="Model\ExportList.cs" />
     <Compile Include="Controller\ExportListController.cs" />
-    <Compile Include="Model\TvgFileSetting.cs" />
+    <Compile Include="Model\ElementExportSettings.cs" />
     <Compile Include="Deprecated\ExportSettings.cs" />
     <Compile Include="Deprecated\VectorFile.cs" />
     <Compile Include="Deprecated\VectorFilePath.cs" />
@@ -97,11 +101,12 @@
     <Compile Include="ExportResultDialog.cs" />
     <Compile Include="gtk-gui\ToonBoomExportGUI.ExportResultDialog.cs" />
     <Compile Include="Controller\ImageCropper.cs" />
+    <Compile Include="SceneNavigator.cs" />
+    <Compile Include="gtk-gui\ToonBoomExportGUI.SceneNavigator.cs" />
+    <Compile Include="SceneExportList.cs" />
+    <Compile Include="gtk-gui\ToonBoomExportGUI.SceneExportList.cs" />
+    <Compile Include="Model\SceneExportSettings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Model\" />
-    <Folder Include="Deprecated\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

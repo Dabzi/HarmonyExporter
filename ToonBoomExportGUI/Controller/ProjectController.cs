@@ -127,7 +127,7 @@ namespace ToonBoomExportGUI
 		{
 			ExportJobManager manager = new ExportJobManager ();
 			foreach (ExportList list in pf.ExportList) {
-				foreach (TvgFileSetting tvg in list.Files) {
+				foreach (ElementExportSettings tvg in list.Elements) {
 					manager.AddJob (this, list, tvg);
 				}
 			}
@@ -140,8 +140,8 @@ namespace ToonBoomExportGUI
 		{
 			ExportJobManager manager = new ExportJobManager ();
 			foreach (ExportList list in pf.ExportList) {
-				foreach (TvgFileSetting tvg in list.Files) {
-					if (tvg.ExportStatus == TvgFileSetting.LastExportStatus.Obsolete) {
+				foreach (ElementExportSettings tvg in list.Elements) {
+					if (tvg.ExportStatus == ElementExportSettings.LastExportStatus.Obsolete) {
 						manager.AddJob (this, list, tvg);
 					}
 				}
@@ -151,10 +151,10 @@ namespace ToonBoomExportGUI
 			return manager;
 		}
 
-		public ExportJobManager Export (ExportList list, List<TvgFileSetting> tvgs)
+		public ExportJobManager Export (ExportList list, List<ElementExportSettings> tvgs)
 		{
 			ExportJobManager manager = new ExportJobManager ();
-			foreach (TvgFileSetting tvg in tvgs) {
+			foreach (ElementExportSettings tvg in tvgs) {
 				manager.AddJob (this, list, tvg);
 			}
 			Exporting (manager);
@@ -175,13 +175,13 @@ namespace ToonBoomExportGUI
 				result.Owner.ExportLog = result.FullLog;
 				switch (result.Level) {
 				case ExportLog.Level.Info:
-					result.Owner.ExportStatus = TvgFileSetting.LastExportStatus.Success;
+					result.Owner.ExportStatus = ElementExportSettings.LastExportStatus.Success;
 					break;
 				case ExportLog.Level.Warning:
-					result.Owner.ExportStatus = TvgFileSetting.LastExportStatus.Warnings;
+					result.Owner.ExportStatus = ElementExportSettings.LastExportStatus.Warnings;
 					break;
 				case ExportLog.Level.Error:
-					result.Owner.ExportStatus = TvgFileSetting.LastExportStatus.Failure;
+					result.Owner.ExportStatus = ElementExportSettings.LastExportStatus.Failure;
 					break;
 				default:
 					break;

@@ -20,66 +20,66 @@ namespace ToonBoomExportGUI
 
 		private global::Gtk.Button buttonOk;
 
-		protected virtual void Build ()
+		protected virtual void Build()
 		{
-			global::Stetic.Gui.Initialize (this);
+			global::Stetic.Gui.Initialize(this);
 			// Widget ToonBoomExportGUI.AddFromResourceFileGUI
 			this.Name = "ToonBoomExportGUI.AddFromResourceFileGUI";
-			this.Title = global::Mono.Unix.Catalog.GetString ("Import from xstage file.");
-			this.Icon = global::Stetic.IconLoader.LoadIcon (this, "gtk-add", global::Gtk.IconSize.Button);
+			this.Title = global::Mono.Unix.Catalog.GetString("Import from xstage file.");
+			this.Icon = global::Stetic.IconLoader.LoadIcon(this, "gtk-add", global::Gtk.IconSize.Button);
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Internal child ToonBoomExportGUI.AddFromResourceFileGUI.VBox
 			global::Gtk.VBox w1 = this.VBox;
 			w1.Name = "dialog1_VBox";
 			w1.BorderWidth = ((uint)(2));
 			// Container child dialog1_VBox.Gtk.Box+BoxChild
-			this.RootVBox = new global::Gtk.VBox ();
+			this.RootVBox = new global::Gtk.VBox();
 			this.RootVBox.Name = "RootVBox";
 			this.RootVBox.Spacing = 6;
 			// Container child RootVBox.Gtk.Box+BoxChild
-			this.ElementTableHBox = new global::Gtk.HBox ();
+			this.ElementTableHBox = new global::Gtk.HBox();
 			this.ElementTableHBox.Name = "ElementTableHBox";
 			this.ElementTableHBox.Spacing = 6;
 			// Container child ElementTableHBox.Gtk.Box+BoxChild
-			this.ElementTablePath = new global::Gtk.TextView ();
+			this.ElementTablePath = new global::Gtk.TextView();
 			this.ElementTablePath.CanFocus = true;
 			this.ElementTablePath.Name = "ElementTablePath";
 			this.ElementTablePath.Editable = false;
-			this.ElementTableHBox.Add (this.ElementTablePath);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.ElementTableHBox [this.ElementTablePath]));
+			this.ElementTableHBox.Add(this.ElementTablePath);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.ElementTableHBox[this.ElementTablePath]));
 			w2.Position = 0;
 			// Container child ElementTableHBox.Gtk.Box+BoxChild
-			this.SelectElementTable = new global::Gtk.Button ();
+			this.SelectElementTable = new global::Gtk.Button();
 			this.SelectElementTable.CanFocus = true;
 			this.SelectElementTable.Name = "SelectElementTable";
-			global::Gtk.Image w3 = new global::Gtk.Image ();
-			w3.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-open", global::Gtk.IconSize.Menu);
+			global::Gtk.Image w3 = new global::Gtk.Image();
+			w3.Pixbuf = global::Stetic.IconLoader.LoadIcon(this, "gtk-open", global::Gtk.IconSize.Menu);
 			this.SelectElementTable.Image = w3;
-			this.ElementTableHBox.Add (this.SelectElementTable);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.ElementTableHBox [this.SelectElementTable]));
+			this.ElementTableHBox.Add(this.SelectElementTable);
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.ElementTableHBox[this.SelectElementTable]));
 			w4.Position = 1;
 			w4.Expand = false;
 			w4.Fill = false;
-			this.RootVBox.Add (this.ElementTableHBox);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.RootVBox [this.ElementTableHBox]));
+			this.RootVBox.Add(this.ElementTableHBox);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.RootVBox[this.ElementTableHBox]));
 			w5.Position = 0;
 			w5.Expand = false;
 			w5.Fill = false;
 			// Container child RootVBox.Gtk.Box+BoxChild
-			this.EntryListScrollbar = new global::Gtk.ScrolledWindow ();
+			this.EntryListScrollbar = new global::Gtk.ScrolledWindow();
 			this.EntryListScrollbar.Name = "EntryListScrollbar";
 			this.EntryListScrollbar.HscrollbarPolicy = ((global::Gtk.PolicyType)(2));
 			this.EntryListScrollbar.ShadowType = ((global::Gtk.ShadowType)(1));
 			// Container child EntryListScrollbar.Gtk.Container+ContainerChild
-			this.EntryList = new global::Gtk.NodeView ();
+			this.EntryList = new global::Gtk.NodeView();
 			this.EntryList.CanFocus = true;
 			this.EntryList.Name = "EntryList";
-			this.EntryListScrollbar.Add (this.EntryList);
-			this.RootVBox.Add (this.EntryListScrollbar);
-			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.RootVBox [this.EntryListScrollbar]));
+			this.EntryListScrollbar.Add(this.EntryList);
+			this.RootVBox.Add(this.EntryListScrollbar);
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.RootVBox[this.EntryListScrollbar]));
 			w7.Position = 1;
-			w1.Add (this.RootVBox);
-			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(w1 [this.RootVBox]));
+			w1.Add(this.RootVBox);
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(w1[this.RootVBox]));
 			w8.Position = 0;
 			// Internal child ToonBoomExportGUI.AddFromResourceFileGUI.ActionArea
 			global::Gtk.HButtonBox w9 = this.ActionArea;
@@ -88,41 +88,42 @@ namespace ToonBoomExportGUI
 			w9.BorderWidth = ((uint)(5));
 			w9.LayoutStyle = ((global::Gtk.ButtonBoxStyle)(4));
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
-			this.buttonCancel = new global::Gtk.Button ();
+			this.buttonCancel = new global::Gtk.Button();
 			this.buttonCancel.CanDefault = true;
 			this.buttonCancel.CanFocus = true;
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.UseStock = true;
 			this.buttonCancel.UseUnderline = true;
 			this.buttonCancel.Label = "gtk-cancel";
-			this.AddActionWidget (this.buttonCancel, -6);
-			global::Gtk.ButtonBox.ButtonBoxChild w10 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w9 [this.buttonCancel]));
+			this.AddActionWidget(this.buttonCancel, -6);
+			global::Gtk.ButtonBox.ButtonBoxChild w10 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w9[this.buttonCancel]));
 			w10.Expand = false;
 			w10.Fill = false;
 			// Container child dialog1_ActionArea.Gtk.ButtonBox+ButtonBoxChild
-			this.buttonOk = new global::Gtk.Button ();
+			this.buttonOk = new global::Gtk.Button();
 			this.buttonOk.CanDefault = true;
 			this.buttonOk.CanFocus = true;
 			this.buttonOk.Name = "buttonOk";
 			this.buttonOk.UseStock = true;
 			this.buttonOk.UseUnderline = true;
 			this.buttonOk.Label = "gtk-ok";
-			this.AddActionWidget (this.buttonOk, -5);
-			global::Gtk.ButtonBox.ButtonBoxChild w11 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w9 [this.buttonOk]));
+			this.AddActionWidget(this.buttonOk, -5);
+			global::Gtk.ButtonBox.ButtonBoxChild w11 = ((global::Gtk.ButtonBox.ButtonBoxChild)(w9[this.buttonOk]));
 			w11.Position = 1;
 			w11.Expand = false;
 			w11.Fill = false;
-			if ((this.Child != null)) {
-				this.Child.ShowAll ();
+			if ((this.Child != null))
+			{
+				this.Child.ShowAll();
 			}
 			this.DefaultWidth = 656;
 			this.DefaultHeight = 540;
-			this.Show ();
-			this.SelectElementTable.Clicked += new global::System.EventHandler (this.SelectElementTableClicked);
-			this.buttonCancel.Clicked += new global::System.EventHandler (this.CancelClicked);
-			this.buttonCancel.Activated += new global::System.EventHandler (this.CancelClicked);
-			this.buttonOk.Activated += new global::System.EventHandler (this.OkClicked);
-			this.buttonOk.Clicked += new global::System.EventHandler (this.OkClicked);
+			this.Show();
+			this.SelectElementTable.Clicked += new global::System.EventHandler(this.SelectElementTableClicked);
+			this.buttonCancel.Clicked += new global::System.EventHandler(this.CancelClicked);
+			this.buttonCancel.Activated += new global::System.EventHandler(this.CancelClicked);
+			this.buttonOk.Activated += new global::System.EventHandler(this.OkClicked);
+			this.buttonOk.Clicked += new global::System.EventHandler(this.OkClicked);
 		}
 	}
 }

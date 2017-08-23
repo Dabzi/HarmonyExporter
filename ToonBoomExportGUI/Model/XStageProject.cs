@@ -17,7 +17,11 @@ namespace ToonBoomExportGUI
 
 		[XmlArray("elements")]
 		[XmlArrayItem("element")]
-		public XStageElements elements;
+		public List<XStageElement> elements;
+
+		[XmlArray("scenes")]
+		[XmlArrayItem("scene")]
+		public List<XStageScene> scenes;
 
 		public XStageProject()
 		{
@@ -44,11 +48,26 @@ namespace ToonBoomExportGUI
 		}
 	}
 
-	public class XStageElements : List<XStageElement>
+	public class XStageScene
 	{
-		public XStageElements ()
-		{
-		}
+		[XmlAttribute]
+		public String name;
+		[XmlAttribute]
+		public String id;
+		[XmlAttribute]
+		public int nbframes;
+
+		[XmlArray("columns")]
+		[XmlArrayItem("column")]
+		public List<XStageColumn> columns;
+	}
+
+	public class XStageColumn
+	{
+		[XmlAttribute]
+		public int id;
+		[XmlAttribute]
+		public int displayOrder;
 	}
 		
 	public class XStageElement
@@ -77,6 +96,14 @@ namespace ToonBoomExportGUI
 		public XStageElement()
 		{
 		}
+	}
+
+	public class XStageElementSequence
+	{
+	}
+
+	public class XStageSceneSequence
+	{
 	}
 		
 	public class XStageDrawing

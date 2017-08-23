@@ -77,7 +77,7 @@ namespace ToonBoomExportGUI
 			{
 
 				XStageProject xsp = XStageProject.Load(fc.Filename);
-				XStageElements elementTable = xsp.elements;
+				List<XStageElement> elementTable = xsp.elements;
 
 				elementTableUrl = fc.Filename;
 

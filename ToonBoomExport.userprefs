@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="ToonBoomExportGUI\ToonBoomExport.csproj">
+﻿<Properties StartupConfiguration="{B70DD09D-DF2F-464D-902B-712A610276A5}|Default">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -6,10 +6,14 @@
       <Catchpoint enabled="false" exceptionName="GLib.GException" includeSubclasses="True" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToonBoomExportGUI\Controller\UTransformController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToonBoomExportGUI\ProjectWindow.cs">
     <Files>
-      <File FileName="ToonBoomExportGUI\Controller\UTransformController.cs" Line="207" Column="30" />
+      <File FileName="ToonBoomExportGUI\Controller\ExportListController.cs" Line="96" Column="17" />
+      <File FileName="ToonBoomExportGUI\Controller\ProjectController.cs" Line="157" Column="34" />
+      <File FileName="ToonBoomExportGUI\XStageListTab.cs" Line="48" Column="54" />
+      <File FileName="ToonBoomExportGUI\ProjectWindow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.ToonBoomExport PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

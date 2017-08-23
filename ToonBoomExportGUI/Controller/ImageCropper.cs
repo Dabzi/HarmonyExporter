@@ -1,13 +1,15 @@
 ﻿using System;
 using Gdk;
+using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
+using PdfSharp.Drawing;
+
 namespace ToonBoomExportGUI
 {
 	public class ImageCropper
 	{
 		public ImageCropper ()
 		{
-
-
 
 		}
 
@@ -35,6 +37,17 @@ namespace ToonBoomExportGUI
 			cropped.Save (imagePath, ext);
 
 		}
+
+        public void CropPdf(string pdfPath, float u1, float v1, float u2, float v2)
+        {
+            PdfDocument doc = PdfReader.Open(pdfPath);
+            PdfPage page = doc.Pages[0];
+            page.CropBox = new PdfRectangle(new XPoint(u1 * page.Width, v1*page.Height), new XPoint(u2*page.Width, v2*page.Height));
+            doc.Save(pdfPath);
+
+            Console.WriteLine("UV1 {0}, {1}\nUV2 {2}, {3}", u1, v1, u2, v2);
+            Console.WriteLine("CB1 {0}, {1}\nCB2 {2}, {3}", u1 * page.Width, v1 * page.Height, u2 * page.Width, v2 * page.Height);
+        }
 
 		public void Composite (string toppath, string bottompath, string outputPath)
 		{

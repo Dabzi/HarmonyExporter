@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 namespace ToonBoomExportGUI
@@ -6,11 +6,11 @@ namespace ToonBoomExportGUI
 	public class ExportResult
 	{
 		public List<ExportLog> entries = new List<ExportLog> ();
-		public TvgFileSetting Owner { get;}
+		public ElementExportSettings Owner { get;}
 
 		public ExportLog.Level Level { get; private set;}
 
-		public ExportResult (TvgFileSetting owner)
+		public ExportResult (ElementExportSettings owner)
 		{
 			Owner = owner;
 			Level = ExportLog.Level.Info;

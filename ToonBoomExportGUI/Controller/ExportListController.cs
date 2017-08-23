@@ -37,7 +37,7 @@ namespace ToonBoomExportGUI
 
 			//Check last modified date vs last export and mark obselete if required.
 			foreach (ExportList list in lists) {
-				foreach (TvgFileSetting file in list.Files) {
+				foreach (ElementExportSettings file in list.Elements) {
 					string path = new Uri (parentController.FileDirectory, file.FilePath).AbsolutePath;
 
 					DateTime lastModified = System.IO.File.GetLastWriteTimeUtc (path);
@@ -46,7 +46,7 @@ namespace ToonBoomExportGUI
 					ulong lastModifiedEpoch= (ulong)(Math.Floor (diff.TotalSeconds));
 
 					if (lastModifiedEpoch > file.LastExport) {
-						file.ExportStatus = TvgFileSetting.LastExportStatus.Obsolete;
+						file.ExportStatus = ElementExportSettings.LastExportStatus.Obsolete;
 					}
 					string directoryPath = System.IO.Path.GetDirectoryName (path);
 					if (!watchers.ContainsKey (directoryPath)) {
@@ -65,11 +65,11 @@ namespace ToonBoomExportGUI
 							Uri changedUri = new Uri(e.FullPath);
 							Console.WriteLine (changedUri + " has changed");
 							foreach (ExportList listIt in lists) {
-								foreach (TvgFileSetting fileIt in list.Files) {
+								foreach (ElementExportSettings fileIt in list.Elements) {
 									Uri pathIt = new Uri (parentController.FileDirectory, fileIt.FilePath);
 									Console.WriteLine ("Comparing {0} to {1}",pathIt, changedUri);
 									if (changedUri.Equals (pathIt)) {
-										fileIt.ExportStatus = TvgFileSetting.LastExportStatus.Obsolete;
+										fileIt.ExportStatus = ElementExportSettings.LastExportStatus.Obsolete;
 										Console.WriteLine ("Same! marking for rebuild {0}", fileIt.Name);
 									}
 								}
@@ -82,18 +82,18 @@ namespace ToonBoomExportGUI
 			}
 		}
 
-		public void AddTvg (TvgFileSetting file)
+		public void AddTvg (ElementExportSettings file)
 		{
 			if (Active != null) {
 				file.FilePath = parentController.FileLocation.MakeRelativeUri (file.FilePath);
-				Active.Files.Add (file);
+				Active.Elements.Add (file);
 				TvgAdded (Active);
 			}
 		}
 
-		public void RemoveTvg (TvgFileSetting file, ExportList list)
+		public void RemoveTvg (ElementExportSettings file, ExportList list)
 		{
-			list.Files.Remove (file);
+			list.Elements.Remove (file);
 		}
 
 		public void SetActiveExportList (ExportList list)

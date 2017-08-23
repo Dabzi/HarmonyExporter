@@ -9,8 +9,15 @@ namespace ToonBoomExportGUI
 	{
 		public String ProjectName { get; set; }
 
+		/// <summary>
+		/// List of XStage projects to track.
+		/// </summary>
 		public List<XmlUri> XStageProjects { get; set; }
 
+
+		/// <summary>
+		/// Lists containing elements and scenes to export (with settings).
+		/// </summary>
 		public List<ExportList> ExportList { get; set; }
 
 

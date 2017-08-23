@@ -18,7 +18,7 @@ namespace ToonBoomExportGUI
 			this.exportListController = exportListController;
 
 
-			nodestore = new NodeStore (typeof (TvgFileSetting));
+			nodestore = new NodeStore (typeof (ElementExportSettings));
 
 			FileTree.RulesHint = true;
 			FileTree.Selection.Mode = SelectionMode.Multiple;
@@ -30,8 +30,8 @@ namespace ToonBoomExportGUI
 				NodeSelection selection = FileTree.NodeSelection;
 				foreach (ITreeNode node in selection.SelectedNodes) {
 					//Add selected VectorFilePath to the active export list
-					TvgFileSetting current = (TvgFileSetting)node;
-					TvgFileSetting tvg = new TvgFileSetting ();
+ElementExportSettings current = (ElementExportSettings)node;
+ElementExportSettings tvg = new ElementExportSettings ();
 					tvg.Name = current.Name;
 					tvg.FilePath = current.FilePath;
 					exportListController.AddTvg (tvg);
@@ -45,7 +45,7 @@ namespace ToonBoomExportGUI
 				Uri xstageDirectory = new Uri (fileUri, "./");
 
 				foreach (XStageDrawing d in element.drawings) {
-					TvgFileSetting vfp = new TvgFileSetting ();
+ElementExportSettings vfp = new ElementExportSettings ();
 					vfp.FilePath = new Uri(xstageDirectory.LocalPath + element.rootFolder + "/" + element.elementFolder + "/" + element.elementName + "-" + d.name + ".tvg");
 					vfp.Name = element.elementName + "-" + d.name;
 					nodestore.AddNode (vfp);
