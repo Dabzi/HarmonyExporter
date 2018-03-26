@@ -40,17 +40,9 @@ namespace ToonBoomExportGUI
 
 				}
 			} else {
-				bool newVer = true;
-
                 Application.Init();
 
-				if (newVer) {
-					new MainClass (args);
-
-				} else {
-					new MainClass (args);
-				}
-
+				new MainClass (args);
 			}
 		}
 	

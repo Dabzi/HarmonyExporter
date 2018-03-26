@@ -38,10 +38,6 @@ namespace ToonBoomExportGUI
 
 		private global::Gtk.Notebook notebook3;
 
-		private global::ToonBoomExportGUI.SceneNavigator scenenavigator2;
-
-		private global::Gtk.Label label4;
-
 		private global::Gtk.VPaned ElementsPanel;
 
 		private global::Gtk.VBox vbox5;
@@ -157,18 +153,7 @@ namespace ToonBoomExportGUI
 			this.notebook3 = new global::Gtk.Notebook();
 			this.notebook3.CanFocus = true;
 			this.notebook3.Name = "notebook3";
-			this.notebook3.CurrentPage = 1;
-			// Container child notebook3.Gtk.Notebook+NotebookChild
-			this.scenenavigator2 = new global::ToonBoomExportGUI.SceneNavigator();
-			this.scenenavigator2.Events = ((global::Gdk.EventMask)(256));
-			this.scenenavigator2.Name = "scenenavigator2";
-			this.notebook3.Add(this.scenenavigator2);
-			// Notebook tab
-			this.label4 = new global::Gtk.Label();
-			this.label4.Name = "label4";
-			this.label4.LabelProp = global::Mono.Unix.Catalog.GetString("Scenes");
-			this.notebook3.SetTabLabel(this.scenenavigator2, this.label4);
-			this.label4.ShowAll();
+			this.notebook3.CurrentPage = 0;
 			// Container child notebook3.Gtk.Notebook+NotebookChild
 			this.ElementsPanel = new global::Gtk.VPaned();
 			this.ElementsPanel.CanFocus = true;
@@ -185,29 +170,29 @@ namespace ToonBoomExportGUI
 			this.Notebook.Name = "Notebook";
 			this.Notebook.CurrentPage = 0;
 			// Notebook tab
-			global::Gtk.Label w7 = new global::Gtk.Label();
-			w7.Visible = true;
-			this.Notebook.Add(w7);
+			global::Gtk.Label w6 = new global::Gtk.Label();
+			w6.Visible = true;
+			this.Notebook.Add(w6);
 			this.label5 = new global::Gtk.Label();
 			this.label5.Name = "label5";
 			this.label5.LabelProp = global::Mono.Unix.Catalog.GetString("Placeholder");
-			this.Notebook.SetTabLabel(w7, this.label5);
+			this.Notebook.SetTabLabel(w6, this.label5);
 			this.label5.ShowAll();
 			this.vbox5.Add(this.Notebook);
-			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.Notebook]));
-			w8.Position = 0;
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.Notebook]));
+			w7.Position = 0;
 			// Container child vbox5.Gtk.Box+BoxChild
 			this.hseparator2 = new global::Gtk.HSeparator();
 			this.hseparator2.Name = "hseparator2";
 			this.vbox5.Add(this.hseparator2);
-			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hseparator2]));
-			w9.PackType = ((global::Gtk.PackType)(1));
-			w9.Position = 1;
-			w9.Expand = false;
-			w9.Fill = false;
+			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox5[this.hseparator2]));
+			w8.PackType = ((global::Gtk.PackType)(1));
+			w8.Position = 1;
+			w8.Expand = false;
+			w8.Fill = false;
 			this.ElementsPanel.Add(this.vbox5);
-			global::Gtk.Paned.PanedChild w10 = ((global::Gtk.Paned.PanedChild)(this.ElementsPanel[this.vbox5]));
-			w10.Resize = false;
+			global::Gtk.Paned.PanedChild w9 = ((global::Gtk.Paned.PanedChild)(this.ElementsPanel[this.vbox5]));
+			w9.Resize = false;
 			// Container child ElementsPanel.Gtk.Paned+PanedChild
 			this.vbox7 = new global::Gtk.VBox();
 			this.vbox7.Name = "vbox7";
@@ -216,10 +201,10 @@ namespace ToonBoomExportGUI
 			this.hseparator3 = new global::Gtk.HSeparator();
 			this.hseparator3.Name = "hseparator3";
 			this.vbox7.Add(this.hseparator3);
-			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.hseparator3]));
-			w11.Position = 0;
-			w11.Expand = false;
-			w11.Fill = false;
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.hseparator3]));
+			w10.Position = 0;
+			w10.Expand = false;
+			w10.Fill = false;
 			// Container child vbox7.Gtk.Box+BoxChild
 			this.hbuttonbox5 = new global::Gtk.HButtonBox();
 			this.hbuttonbox5.Name = "hbuttonbox5";
@@ -230,39 +215,37 @@ namespace ToonBoomExportGUI
 			this.NewExportListButton.Name = "NewExportListButton";
 			this.NewExportListButton.UseUnderline = true;
 			this.NewExportListButton.Label = global::Mono.Unix.Catalog.GetString("Create Export List...");
-			global::Gtk.Image w12 = new global::Gtk.Image();
-			w12.Pixbuf = global::Stetic.IconLoader.LoadIcon(this, "gtk-new", global::Gtk.IconSize.Menu);
-			this.NewExportListButton.Image = w12;
+			global::Gtk.Image w11 = new global::Gtk.Image();
+			w11.Pixbuf = global::Stetic.IconLoader.LoadIcon(this, "gtk-new", global::Gtk.IconSize.Menu);
+			this.NewExportListButton.Image = w11;
 			this.hbuttonbox5.Add(this.NewExportListButton);
-			global::Gtk.ButtonBox.ButtonBoxChild w13 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox5[this.NewExportListButton]));
+			global::Gtk.ButtonBox.ButtonBoxChild w12 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox5[this.NewExportListButton]));
+			w12.Expand = false;
+			w12.Fill = false;
+			this.vbox7.Add(this.hbuttonbox5);
+			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.hbuttonbox5]));
+			w13.Position = 1;
 			w13.Expand = false;
 			w13.Fill = false;
-			this.vbox7.Add(this.hbuttonbox5);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.hbuttonbox5]));
-			w14.Position = 1;
-			w14.Expand = false;
-			w14.Fill = false;
 			// Container child vbox7.Gtk.Box+BoxChild
 			this.NotebookExport = new global::Gtk.Notebook();
 			this.NotebookExport.CanFocus = true;
 			this.NotebookExport.Name = "NotebookExport";
 			this.NotebookExport.CurrentPage = 0;
 			// Notebook tab
-			global::Gtk.Label w15 = new global::Gtk.Label();
-			w15.Visible = true;
-			this.NotebookExport.Add(w15);
+			global::Gtk.Label w14 = new global::Gtk.Label();
+			w14.Visible = true;
+			this.NotebookExport.Add(w14);
 			this.label13 = new global::Gtk.Label();
 			this.label13.Name = "label13";
 			this.label13.LabelProp = global::Mono.Unix.Catalog.GetString("Placeholder");
-			this.NotebookExport.SetTabLabel(w15, this.label13);
+			this.NotebookExport.SetTabLabel(w14, this.label13);
 			this.label13.ShowAll();
 			this.vbox7.Add(this.NotebookExport);
-			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.NotebookExport]));
-			w16.Position = 2;
+			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox7[this.NotebookExport]));
+			w15.Position = 2;
 			this.ElementsPanel.Add(this.vbox7);
 			this.notebook3.Add(this.ElementsPanel);
-			global::Gtk.Notebook.NotebookChild w18 = ((global::Gtk.Notebook.NotebookChild)(this.notebook3[this.ElementsPanel]));
-			w18.Position = 1;
 			// Notebook tab
 			this.label3 = new global::Gtk.Label();
 			this.label3.Name = "label3";
@@ -270,8 +253,8 @@ namespace ToonBoomExportGUI
 			this.notebook3.SetTabLabel(this.ElementsPanel, this.label3);
 			this.label3.ShowAll();
 			this.Root.Add(this.notebook3);
-			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.Root[this.notebook3]));
-			w19.Position = 2;
+			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.Root[this.notebook3]));
+			w18.Position = 2;
 			// Container child Root.Gtk.Box+BoxChild
 			this.hbox1 = new global::Gtk.HBox();
 			this.hbox1.Name = "hbox1";
@@ -283,10 +266,10 @@ namespace ToonBoomExportGUI
 			this.BuildButton.UseUnderline = true;
 			this.BuildButton.Label = global::Mono.Unix.Catalog.GetString("Build All");
 			this.hbox1.Add(this.BuildButton);
-			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.BuildButton]));
-			w20.Position = 0;
-			w20.Expand = false;
-			w20.Fill = false;
+			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.BuildButton]));
+			w19.Position = 0;
+			w19.Expand = false;
+			w19.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.BuildObsolete = new global::Gtk.ToggleButton();
 			this.BuildObsolete.CanFocus = true;
@@ -294,25 +277,25 @@ namespace ToonBoomExportGUI
 			this.BuildObsolete.UseUnderline = true;
 			this.BuildObsolete.Label = global::Mono.Unix.Catalog.GetString("Build Obsolete");
 			this.hbox1.Add(this.BuildObsolete);
-			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.BuildObsolete]));
-			w21.Position = 1;
+			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.BuildObsolete]));
+			w20.Position = 1;
+			w20.Expand = false;
+			w20.Fill = false;
+			this.Root.Add(this.hbox1);
+			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.Root[this.hbox1]));
+			w21.Position = 3;
 			w21.Expand = false;
 			w21.Fill = false;
-			this.Root.Add(this.hbox1);
-			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.Root[this.hbox1]));
-			w22.Position = 3;
-			w22.Expand = false;
-			w22.Fill = false;
 			// Container child Root.Gtk.Box+BoxChild
 			this.ProgressWidget = new global::Gtk.ProgressBar();
 			this.ProgressWidget.Name = "ProgressWidget";
 			this.ProgressWidget.Text = global::Mono.Unix.Catalog.GetString("0 / 100 jobs");
 			this.ProgressWidget.Fraction = 1D;
 			this.Root.Add(this.ProgressWidget);
-			global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.Root[this.ProgressWidget]));
-			w23.Position = 4;
-			w23.Expand = false;
-			w23.Fill = false;
+			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.Root[this.ProgressWidget]));
+			w22.Position = 4;
+			w22.Expand = false;
+			w22.Fill = false;
 			this.Add(this.Root);
 			if ((this.Child != null))
 			{

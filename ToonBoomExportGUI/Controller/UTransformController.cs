@@ -161,8 +161,14 @@ namespace ToonBoomExportGUI
 												list.Suffix,
 												  exportExtensionBindings [exportType]);
 
+				String stagingFile = String.Format("{0}/tmp_{1}{2}{3}.{4}", new Uri(project.FileDirectory, list.ExportDirectory).AbsolutePath,
+												list.Prefix,
+												tvg.Name,
+												list.Suffix,
+												  exportExtensionBindings[exportType]);
+
 				String outformat = String.Format ("-outformat {0}", exportType);
-				String outfile = String.Format ("-outfile {0}", outputFile);
+				String outfile = String.Format ("-outfile {0}", stagingFile);
 				String resolution = String.Format ("-resolution {0} {1}", resX, resY);
 
 				//Clean up global arguments
@@ -239,13 +245,13 @@ namespace ToonBoomExportGUI
 						break;
 					}
 				} else {
-					output.Info ("Cropping is only supported on PNG, PNG4 and OMFJPEG formats.");
+					output.Info ("Cropping is only supported on PNG, PNG4, OMFJPEG and PDF formats.");
 				}
 
 				if (rect.Length == 4) {
                     if(exportType != ExportType.PDF)
                     {
-                        cropper.CropImage(outputFile, rect[0], rect[1], rect[2], rect[3]);
+                        cropper.CropImage(stagingFile, rect[0], rect[1], rect[2], rect[3]);
                     }
                     else
                     {
@@ -255,10 +261,11 @@ namespace ToonBoomExportGUI
                         pdfBox[2] = rect[2] / (float)resX;
                         pdfBox[3] = rect[3] / (float)resY;
 
-                        cropper.CropPdf(outputFile, pdfBox[0], pdfBox[1], pdfBox[2], pdfBox[3]);
+                        cropper.CropPdf(stagingFile, pdfBox[0], pdfBox[1], pdfBox[2], pdfBox[3]);
                     }
 				}
-
+				System.IO.File.Delete(outputFile);
+				System.IO.File.Move(stagingFile, outputFile);
 
 			} catch (Exception e) {
 				output.Error (e.GetType () + "\n" + e.StackTrace + "\n" + e.Message);
